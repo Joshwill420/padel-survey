@@ -12,60 +12,65 @@ body{font-family:'Inter',sans-serif;background:#f5f5f5;color:#111;min-height:100
 .nav{background:#111;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
 .nav-logo{font-family:'EB Garamond',serif;font-size:17px;color:#fff}
 .nav-tag{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
-.main{max-width:900px;margin:0 auto;padding:48px 24px 80px}
+.main{max-width:680px;margin:0 auto;padding:48px 24px 80px}
 .eyebrow{font-size:11px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
 .title{font-family:'EB Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:400;margin-bottom:6px}
+.divider{height:1px;background:#ddd;margin:28px 0}
 .section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:16px}
-.stat-row{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
-.stat-card{background:#fff;border:1px solid #ddd;padding:18px 22px;min-width:130px}
+.stat-row{display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.stat-card{background:#fff;border:1px solid #ddd;padding:18px 22px;min-width:130px;flex:1}
 .stat-num{font-family:'EB Garamond',serif;font-size:34px;font-weight:400;line-height:1;margin-bottom:4px}
 .stat-label{font-size:11px;color:#888;font-weight:300;line-height:1.4}
-.bars-panel{background:#fff;border:1px solid #ddd;padding:28px;margin-bottom:20px}
-.bar-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.bar-row:last-child{margin-bottom:0}
-.bar-label{font-size:13px;min-width:200px}
-.bar-wrap{flex:1;background:#f0f0f0;height:8px}
-.bar-fill{height:8px;background:#111;width:0;transition:width .7s ease}
-.bar-pct{font-size:13px;font-weight:500;min-width:38px;text-align:right;color:#555}
-.bar-score{font-size:12px;color:#aaa;min-width:40px;text-align:right}
-.table-panel{background:#fff;border:1px solid #ddd;padding:20px;overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:580px}
-th{padding:9px 8px;text-align:left;font-size:11px;font-weight:500;color:#555;border-bottom:1px solid #ddd;white-space:nowrap}
-th.c{text-align:center}
-td{padding:9px 8px;border-bottom:1px solid #eee;color:#333;vertical-align:top}
-td.c{text-align:center}
-tr:nth-child(even){background:#fafafa}
-tr:last-child td{border-bottom:none}
-.btn{background:none;border:1px solid #ddd;padding:8px 16px;font-size:12px;color:#555;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block}
-.btn:hover{border-color:#999;color:#111}
-.btn-primary{background:#111;color:#fff;border-color:#111}
-.btn-primary:hover{opacity:.82}
-.empty{text-align:center;padding:56px;color:#aaa}
+/* Percentage bars */
+.amenity-row{background:#fff;border:1px solid #ddd;padding:20px 24px;margin-bottom:10px}
+.amenity-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.amenity-name{font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px}
+.amenity-pct{font-size:20px;font-weight:600;font-family:'EB Garamond',serif}
+.amenity-pct.high{color:#111}
+.amenity-pct.mid{color:#666}
+.amenity-pct.low{color:#aaa}
+.bar-wrap{background:#f0f0f0;height:6px;width:100%}
+.bar-fill{height:6px;background:#111;width:0;transition:width .8s ease}
+.amenity-sub{font-size:11px;color:#aaa;margin-top:6px}
+/* Interest breakdown */
+.breakdown{display:flex;gap:4px;margin-top:8px}
+.breakdown-item{flex:1;text-align:center}
+.breakdown-bar-wrap{background:#f0f0f0;height:40px;display:flex;align-items:flex-end}
+.breakdown-bar{background:#ddd;width:100%;transition:height .6s ease}
+.breakdown-bar.selected{background:#111}
+.breakdown-label{font-size:9px;color:#aaa;margin-top:3px}
+.breakdown-count{font-size:10px;color:#555;font-weight:500}
+/* PIN */
 .pin-wrap{max-width:340px;margin:80px auto;background:#fff;border:1px solid #ddd;padding:40px;text-align:center}
 .pin-wrap h3{font-family:'EB Garamond',serif;font-size:22px;font-weight:400;margin-bottom:8px}
 .pin-wrap p{font-size:13px;color:#888;margin-bottom:24px;font-weight:300}
 .pin-input{width:100%;border:1px solid #ddd;padding:14px;font-size:22px;text-align:center;letter-spacing:.3em;font-family:'Inter',sans-serif;outline:none;margin-bottom:14px}
 .pin-input:focus{border-color:#111}
 .pin-error{font-size:12px;color:#c00;margin-top:8px;display:none}
+.btn{background:none;border:1px solid #ddd;padding:8px 16px;font-size:12px;color:#555;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:all .15s}
+.btn:hover{border-color:#999;color:#111}
+.btn-primary{background:#111;color:#fff;border-color:#111;width:100%;padding:13px;font-size:13px;font-weight:500}
+.btn-primary:hover{opacity:.82}
 .loading{text-align:center;padding:48px;color:#aaa;font-size:14px}
-@media(max-width:600px){.bar-label{min-width:120px;font-size:12px}.nav{padding:0 20px}.main{padding:32px 16px 64px}}
+.top-bar{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+@media(max-width:500px){.nav{padding:0 20px}.main{padding:32px 16px 64px}.stat-card{min-width:calc(50% - 6px)}}
 </style>
 </head>
 <body>
 <nav class="nav">
   <span class="nav-logo">The Padel Club</span>
-  <span class="nav-tag">Results Dashboard</span>
+  <span class="nav-tag">Results</span>
 </nav>
 <div class="main" id="app">
   <div class="pin-wrap" id="pin-screen">
     <h3>Results access</h3>
     <p>Enter the admin PIN to view live survey results.</p>
     <input class="pin-input" type="password" id="pin" maxlength="8" placeholder="· · · ·" onkeydown="if(event.key==='Enter')unlock()">
-    <button class="btn-primary btn" style="width:100%;padding:13px" onclick="unlock()">View Results</button>
-    <p class="pin-error" id="pin-err">Incorrect PIN. Try again.</p>
+    <button class="btn-primary btn" onclick="unlock()">View Results</button>
+    <p class="pin-error" id="pin-err">Incorrect PIN.</p>
   </div>
   <div id="dashboard" style="display:none">
-    <div style="margin-bottom:32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div class="top-bar">
       <div>
         <p class="eyebrow">Hudson Harbor · Admin View</p>
         <h1 class="title">Amenity Interest Results</h1>
@@ -73,7 +78,7 @@ tr:last-child td{border-bottom:none}
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn" onclick="load()">↻ Refresh</button>
-        <a href="/" class="btn">← Survey</a>
+        <a href="index.html" class="btn">← Survey</a>
       </div>
     </div>
     <div id="content"><div class="loading">Loading…</div></div>
@@ -83,15 +88,16 @@ tr:last-child td{border-bottom:none}
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJQMOhHrD3ZNwxL0Juq1Gsy_6MS1-vqaERdP_srmGKXA51hF3CjJYS-iRI8H0X2GD-/exec';
 const PIN = '2027';
 const AMENITIES = [
-  {id:'gym',icon:'🏋️',title:'Gym & Fitness Floor'},
-  {id:'sauna',icon:'🧊',title:'Sauna & Cold Plunge'},
-  {id:'treatment',icon:'💆',title:'Treatment Rooms'},
-  {id:'nursery',icon:'👶',title:'Nursery & Childcare'},
-  {id:'lounge',icon:'🛋️',title:'Members Lounge'},
-  {id:'workspace',icon:'💻',title:'Co-Working Workspace'},
-  {id:'fb',icon:'☕',title:'Food & Beverage'},
-  {id:'iv',icon:'💉',title:'IV Therapy'}
+  {id:'gym',      icon:'🏋️', title:'Gym & Fitness Floor'},
+  {id:'sauna',    icon:'🧊', title:'Sauna & Cold Plunge'},
+  {id:'treatment',icon:'💆', title:'Treatment Rooms'},
+  {id:'nursery',  icon:'👶', title:'Nursery & Childcare'},
+  {id:'lounge',   icon:'🛋️', title:'Members Lounge'},
+  {id:'workspace',icon:'💻', title:'Co-Working Workspace'},
+  {id:'fb',       icon:'☕', title:'Food & Beverage'},
+  {id:'iv',       icon:'💉', title:'IV Therapy'}
 ];
+
 function unlock(){
   if(document.getElementById('pin').value===PIN){
     document.getElementById('pin-screen').style.display='none';
@@ -103,45 +109,86 @@ function unlock(){
     document.getElementById('pin').focus();
   }
 }
+
 async function load(){
   document.getElementById('content').innerHTML='<div class="loading">Loading results…</div>';
   try{
-    const r=await fetch(SCRIPT_URL);
-    const d=await r.json();
-    document.getElementById('ts').textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    const r = await fetch(SCRIPT_URL);
+    const d = await r.json();
+    document.getElementById('ts').textContent = 'Updated ' + new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
     render(d);
   } catch(e){
-    document.getElementById('content').innerHTML='<div class="empty">Could not load results.<br><span style="font-size:12px">Check your Apps Script URL in the HTML file.</span></div>';
+    document.getElementById('content').innerHTML='<div class="loading">Could not load results. Try refreshing.</div>';
   }
 }
+
 function render(d){
-  const count=d.count||0;
+  const count = d.count || 0;
   if(!count){
-    document.getElementById('content').innerHTML='<div class="empty" style="font-size:32px;margin-bottom:12px">📭</div><div class="empty">No responses yet.<br><span style="font-size:12px">Share the survey link to begin.</span></div>';
+    document.getElementById('content').innerHTML='<div class="loading" style="font-size:28px;margin-bottom:12px">📭</div><div class="loading">No responses yet.<br><span style="font-size:12px">Share the survey link to begin.</span></div>';
     return;
   }
-  const avgs=d.averages||{};
-  const ranked=[...AMENITIES].map(a=>({...a,avg:avgs[a.id]||0,pct:Math.round(((avgs[a.id]||0)/5)*100)})).sort((a,b)=>b.avg-a.avg);
-  const responses=d.responses||[];
-  document.getElementById('content').innerHTML=`
+
+  const avgs = d.averages || {};
+  const responses = d.responses || [];
+
+  // Calculate percentage interested (scored 3 or above) per amenity
+  const interested = {};
+  const scoreCounts = {};
+  AMENITIES.forEach(a => {
+    interested[a.id] = 0;
+    scoreCounts[a.id] = {1:0,2:0,3:0,4:0,5:0};
+  });
+  responses.forEach(r => {
+    AMENITIES.forEach(a => {
+      const v = r[a.id] || 0;
+      if(v >= 3) interested[a.id]++;
+      if(v >= 1 && v <= 5) scoreCounts[a.id][v]++;
+    });
+  });
+
+  // Sort by % interested descending
+  const ranked = [...AMENITIES].map(a => ({
+    ...a,
+    avg: avgs[a.id] || 0,
+    pct: Math.round((interested[a.id] / count) * 100),
+    avgPct: Math.round(((avgs[a.id]||0)/5)*100),
+    counts: scoreCounts[a.id]
+  })).sort((a,b) => b.pct - a.pct);
+
+  const top = ranked[0];
+
+  document.getElementById('content').innerHTML = `
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-num">${count}</div><div class="stat-label">Responses</div></div>
-      <div class="stat-card"><div class="stat-num">${ranked[0].avg.toFixed(1)}</div><div class="stat-label">Top — ${ranked[0].icon} ${ranked[0].title}</div></div>
-      <div class="stat-card"><div class="stat-num">${ranked[ranked.length-1].avg.toFixed(1)}</div><div class="stat-label">Lowest — ${ranked[ranked.length-1].icon} ${ranked[ranked.length-1].title}</div></div>
+      <div class="stat-card"><div class="stat-num">${count}</div><div class="stat-label">Responses received</div></div>
+      <div class="stat-card"><div class="stat-num">${top.pct}%</div><div class="stat-label">Most wanted — ${top.icon} ${top.title}</div></div>
+      <div class="stat-card"><div class="stat-num">${ranked[ranked.length-1].pct}%</div><div class="stat-label">Least wanted — ${ranked[ranked.length-1].icon} ${ranked[ranked.length-1].title}</div></div>
     </div>
-    <div class="bars-panel">
-      <p class="section-label">Interest by amenity — ranked</p>
-      ${ranked.map(r=>`<div class="bar-row"><span class="bar-label">${r.icon} &nbsp;${r.title}</span><div class="bar-wrap"><div class="bar-fill" style="width:${r.pct}%"></div></div><span class="bar-pct">${r.pct}%</span><span class="bar-score">${r.avg.toFixed(1)}/5</span></div>`).join('')}
-    </div>
-    <p class="section-label">All ${count} response${count===1?'':'s'}</p>
-    <div class="table-panel">
-      <table>
-        <thead><tr><th>#</th><th>Name</th><th>Unit</th>${AMENITIES.map(a=>`<th class="c" title="${a.title}">${a.icon}</th>`).join('')}<th>Comments</th><th>Date</th></tr></thead>
-        <tbody>${responses.map((r,i)=>`<tr><td style="color:#bbb">${i+1}</td><td>${r.name||'<span style="color:#ddd">—</span>'}</td><td>${r.unit||'<span style="color:#ddd">—</span>'}</td>${AMENITIES.map(a=>{const v=r[a.id];return`<td class="c" style="font-weight:${v>=4?'600':'400'};color:${v>=4?'#111':v>=3?'#666':'#ccc'}">${v||'—'}</td>`;}).join('')}<td style="max-width:150px;font-size:11px;color:#555">${r.comments||'—'}</td><td style="color:#aaa;white-space:nowrap;font-size:11px">${r.ts?new Date(r.ts).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'—'}</td></tr>`).join('')}</tbody>
-      </table>
-      <p style="font-size:11px;color:#bbb;margin-top:12px">Bold = 4–5 · Grey = 3 · Light = 1–2 · Hover icons for amenity name</p>
-    </div>`;
-  setTimeout(()=>{document.querySelectorAll('.bar-fill').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>el.style.width=w,50);});},100);
+
+    <p class="section-label">% of residents interested (rated 3 or above) — ranked</p>
+
+    ${ranked.map(r => `
+      <div class="amenity-row">
+        <div class="amenity-top">
+          <span class="amenity-name">${r.icon} ${r.title}</span>
+          <span class="amenity-pct ${r.pct>=60?'high':r.pct>=35?'mid':'low'}">${r.pct}%</span>
+        </div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${r.pct}%"></div></div>
+        <div class="amenity-sub">Average score ${r.avg.toFixed(1)} / 5 &nbsp;·&nbsp; ${interested[r.id]} of ${count} residents interested</div>
+        <div class="breakdown">
+          ${[1,2,3,4,5].map(i => {
+            const c = r.counts[i] || 0;
+            const h = count > 0 ? Math.round((c/count)*36) : 0;
+            return `<div class="breakdown-item">
+              <div class="breakdown-bar-wrap"><div class="breakdown-bar ${i>=3?'selected':''}" style="height:${h}px"></div></div>
+              <div class="breakdown-count">${c}</div>
+              <div class="breakdown-label">${i}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
 }
 </script>
 </body>
