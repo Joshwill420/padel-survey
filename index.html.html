@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Padel Club — Resident Interest Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f5f5f5;color:#111;min-height:100vh}
+.nav{background:#111;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+.nav-logo{font-family:'EB Garamond',serif;font-size:17px;color:#fff;letter-spacing:.02em}
+.nav-tag{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
+.main{max-width:700px;margin:0 auto;padding:48px 24px 80px}
+.eyebrow{font-size:11px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.title{font-family:'EB Garamond',serif;font-size:clamp(28px,5vw,40px);font-weight:400;line-height:1.15;margin-bottom:16px}
+.title em{font-style:italic}
+.subtitle{font-size:14px;color:#555;line-height:1.75;font-weight:300}
+.divider{height:1px;background:#ddd;margin:32px 0}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:20px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:500;color:#333;margin-bottom:6px}
+.field input,.field textarea{width:100%;border:1px solid #ddd;padding:12px 14px;font-size:14px;font-family:'Inter',sans-serif;color:#111;background:#fff;outline:none;border-radius:0;transition:border-color .2s;-webkit-appearance:none}
+.field input:focus,.field textarea:focus{border-color:#111}
+.field textarea{resize:vertical;min-height:80px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.amenity-card{background:#fff;border:1px solid #ddd;padding:24px;margin-bottom:14px}
+.amenity-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:8px}
+.amenity-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.amenity-title{font-family:'EB Garamond',serif;font-size:19px;font-weight:400;line-height:1.2}
+.amenity-desc{font-size:13px;color:#666;line-height:1.65;margin-bottom:18px;font-weight:300}
+.interest-scale{display:flex;gap:6px;margin-bottom:6px}
+.io{display:none}
+.io+label{flex:1;text-align:center;padding:10px 4px;border:1px solid #ddd;font-size:13px;cursor:pointer;transition:all .15s;background:#fff;color:#555;user-select:none}
+.io:checked+label{background:#111;color:#fff;border-color:#111;font-weight:500}
+.io+label:hover{border-color:#999;background:#f5f5f5;color:#111}
+.scale-labels{display:flex;justify-content:space-between}
+.scale-label{font-size:10px;color:#bbb}
+.btn-submit{width:100%;background:#111;color:#fff;font-size:14px;font-weight:500;padding:16px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Inter',sans-serif;transition:opacity .2s;margin-top:8px}
+.btn-submit:hover:not(:disabled){opacity:.82}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed}
+.form-note{font-size:12px;color:#aaa;text-align:center;margin-top:12px;font-weight:300}
+.error-note{font-size:12px;color:#c00;margin-bottom:16px;display:none}
+.success{display:none;text-align:center;padding:64px 24px}
+.success-icon{width:56px;height:56px;background:#111;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 20px}
+.success h2{font-family:'EB Garamond',serif;font-size:30px;font-weight:400;margin-bottom:12px}
+.success p{font-size:14px;color:#555;max-width:420px;margin:0 auto;line-height:1.75;font-weight:300}
+@media(max-width:500px){.field-row{grid-template-columns:1fr}.nav{padding:0 20px}.main{padding:32px 16px 64px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-logo">The Padel Club</span>
+  <span class="nav-tag">Resident Survey · Hudson Harbor</span>
+</nav>
+<div class="main">
+  <div id="form-wrap">
+    <div style="margin-bottom:40px">
+      <p class="eyebrow">Hudson Harbor · The Padel Club · 2027</p>
+      <h1 class="title">Help us shape<br><em>your club.</em></h1>
+      <p class="subtitle">The Padel Club opens at 41 Hudson View Way in 2027. As a Hudson Harbor resident, your input will directly shape which amenities we prioritise. Takes under two minutes.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="field-row" style="margin-bottom:18px">
+      <div class="field"><label>Name <span style="color:#bbb;font-weight:300">(optional)</span></label><input type="text" id="f-name" placeholder="First and last name"></div>
+      <div class="field"><label>Unit <span style="color:#bbb;font-weight:300">(optional)</span></label><input type="text" id="f-unit" placeholder="e.g. 4B"></div>
+    </div>
+    <div class="field" style="margin-bottom:32px"><label>Email <span style="color:#bbb;font-weight:300">(optional)</span></label><input type="email" id="f-email" placeholder="name@email.com"></div>
+    <p class="section-label">Rate your interest · 1 = not interested &nbsp; 5 = essential</p>
+    <p class="error-note" id="err">Please rate all amenities before submitting.</p>
+    <div id="cards"></div>
+    <div class="divider"></div>
+    <div class="field"><label>Comments <span style="color:#bbb;font-weight:300">(optional)</span></label><textarea id="f-comments" placeholder="Any other amenities you'd like to see…"></textarea></div>
+    <button class="btn-submit" id="sbtn" onclick="doSubmit()">Submit my response</button>
+    <p class="form-note">Anonymous unless you provide your details. Results shared only with The Padel Club team.</p>
+  </div>
+  <div class="success" id="success">
+    <div class="success-icon">✓</div>
+    <h2>Thank you.</h2>
+    <p>Your input will help shape The Padel Club into the right fit for the Hudson Harbor community. We'll be in touch as we approach opening in 2027.</p>
+  </div>
+</div>
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJQMOhHrD3ZNwxL0Juq1Gsy_6MS1-vqaERdP_srmGKXA51hF3CjJYS-iRI8H0X2GD-/exec';
+const AMENITIES = [
+  {id:'gym',icon:'🏋️',title:'Gym & Fitness Floor',desc:'A full fitness floor with cardio and strength equipment. Open 24 hours for members.'},
+  {id:'sauna',icon:'🧊',title:'Sauna & Cold Plunge',desc:'A thermal suite with traditional sauna and cold plunge. No court booking required.'},
+  {id:'treatment',icon:'💆',title:'Treatment Rooms',desc:'Four private rooms for massage, red-light therapy, and recovery at member rates.'},
+  {id:'nursery',icon:'👶',title:'Nursery & Childcare',desc:'Supervised nursery during peak hours, run by qualified childcare professionals.'},
+  {id:'lounge',icon:'🛋️',title:'Members Lounge',desc:'A social lounge to meet, work informally, or stay awhile after your session.'},
+  {id:'workspace',icon:'💻',title:'Co-Working Workspace',desc:'Eight dedicated workstations with high-speed Wi-Fi for members who work from home.'},
+  {id:'fb',icon:'☕',title:'Food & Beverage',desc:'A café and juice bar with healthy food, coffee, and smoothies during club hours.'},
+  {id:'iv',icon:'💉',title:'IV Therapy',desc:'On-site IV drip sessions for hydration and recovery. By appointment, members only.'}
+];
+document.getElementById('cards').innerHTML=AMENITIES.map(a=>`
+  <div class="amenity-card">
+    <div class="amenity-header"><span class="amenity-icon">${a.icon}</span><span class="amenity-title">${a.title}</span></div>
+    <p class="amenity-desc">${a.desc}</p>
+    <div class="interest-scale">${[1,2,3,4,5].map(i=>`<input class="io" type="radio" name="${a.id}" id="${a.id}-${i}" value="${i}"><label for="${a.id}-${i}">${i}</label>`).join('')}</div>
+    <div class="scale-labels"><span class="scale-label">Not interested</span><span class="scale-label">Essential</span></div>
+  </div>`).join('');
+async function doSubmit(){
+  const missing=AMENITIES.filter(a=>!document.querySelector(`input[name="${a.id}"]:checked`));
+  if(missing.length){document.getElementById('err').style.display='block';return;}
+  const btn=document.getElementById('sbtn');
+  btn.disabled=true;btn.textContent='Submitting…';
+  const p={name:document.getElementById('f-name').value.trim(),unit:document.getElementById('f-unit').value.trim(),email:document.getElementById('f-email').value.trim(),comments:document.getElementById('f-comments').value.trim()};
+  AMENITIES.forEach(a=>{p[a.id]=parseInt(document.querySelector(`input[name="${a.id}"]:checked`).value);});
+  try{await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(p)});}catch(e){}
+  document.getElementById('form-wrap').style.display='none';
+  document.getElementById('success').style.display='block';
+}
+</script>
+</body>
+</html>
